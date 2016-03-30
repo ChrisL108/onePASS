@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JS TEST</title>
+	<link rel="stylesheet" href="css/styles.css">
+	<link href='https://fonts.googleapis.com/css?family=Kalam:400,700,300' rel='stylesheet' type='text/css'>
+
+	<script>
+
+		function generate() {
+			var randomPass = passwordForm.randPass.value = Math.random().toString(36).slice(-8);
+			return false;
+		}
+
+	</script>
+</head>
+<body class="orange">
+	<header>
+		<h1 id="heading">
+			<span id="headingL" style="color: cadetblue;">one</span>PASS
+		</h1>
+	</header>
+	
+	<div id="main">
+		<form action="" name="passwordForm">
+			<label for="password">New Password:</label>
+			<input id="userPw" type="text" name="password" autocomplete="off">
+			<button type="submit">Submit</button>
+			<br>
+			<div id="pass-gen">
+				<input type="text" id="randPass" placeholder="Generate Password">
+				<button type="button" id="generatePw" onclick="generate()">
+					Generate
+				</button>
+				<button type="button" name="insert" id="insert">Insert Password</button>
+			</div>
+		</form>
+
+	</div>
+	<div id="action_btns">
+		<button type="button" id="deleteBtn">Delete</button>
+	    <button type="button" id="hideBtn">Hide</button>
+	    <button type="button" id="showBtn">Show</button>
+	</div>
+		
+
+	<ul id="password_list">
+		<li class="list_item"><input type="checkbox" />password1</li>
+		<li class="list_item"><input type="checkbox" />password2</li>
+	</ul>
+
+
+	<script src="js/jquery.js"></script>
+	<script src="js/main.js"></script>
+</body>
+</html>

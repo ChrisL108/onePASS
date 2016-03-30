@@ -1,0 +1,60 @@
+html {
+	border: 10px solid black;
+	min-height: 100%;
+	font-size: 22px;
+}
+body {
+	background: -webkit-radial-gradient(#442777, #181818);
+	background: -moz-radial-gradient(#442777, #181818);
+	background: -o-radial-gradient(#442777, #181818);
+	background: radial-gradient(#442777, #181818);
+	text-align: center;
+	font-family: 'Kalam', cursive;
+}
+#heading {
+	padding: 15px; 
+	font-size: 45px;
+}
+input[type=checkbox] {
+	margin-right: 20px;
+	font-size: 25px;
+}
+
+.list_item {
+	list-style: none;
+	padding: 5px;
+	color: gray;
+	text-shadow: 1px 1px 1px black;
+	border: 2px solid cadetblue;
+}
+.list_item:hover {
+	border: 2px solid orange;
+}
+.listHighlight {
+	background-color: black;
+	color: white;
+}
+#password_list {
+	padding: 0;
+}
+#password_list li {
+	padding: 10px;
+	margin: 5px;
+}
+#action_btns button {
+	background-color: black;
+	margin: 15px 5px 0 5px;
+	border: 2px solid orange;
+	border-radius: 20px;
+	color: white;
+}
+#action_btns button:hover {
+	border: 2px solid black;
+}
+#pass-gen {
+	opacity: .7;
+}
+.orange {color: orange;}
+.yellow {color: yellow;}
+.white {color:white;}
+.blue {color:blue;}
