@@ -6,7 +6,8 @@
 	<link href='https://fonts.googleapis.com/css?family=Kalam:400,700,300' rel='stylesheet' type='text/css'>
 
 	<script>
-
+		
+		// RANDOM PASSWORD
 		function generate() {
 			var randomPass = passwordForm.randPass.value = Math.random().toString(36).slice(-8);
 			return false;
@@ -16,7 +17,7 @@
 </head>
 <body class="orange">
 	<header>
-		<h1 id="heading">
+		<h1 id="heading" style="color: darkorange">
 			<span id="headingL" style="color: cadetblue;">one</span>PASS
 		</h1>
 	</header>
@@ -24,10 +25,16 @@
 	<div id="main">
 		<form action="" name="passwordForm">
 			<label for="password">New Password:</label>
-			<input id="userPw" type="text" name="password" autocomplete="off">
-			<button type="submit">Confirm Password</button>
+			<input id="userPw" type="text" name="password" autocomplete="off"> 
 			<br>
+			<label for="password">for</label>
+			<input id="pwLabel" type="text" name="pwLabel" autocomplete="off">
+			<button type="submit">Confirm</button>
+			
 			<div id="pass-gen">
+			<p style="padding: 0; margin: 0; color:white; font-size: 14px;">
+				Password Generator
+			</p>
 				<input type="text" id="randPass" placeholder="Generate Password">
 				<button type="button" id="generatePw" onclick="generate()">
 					GENERATE
@@ -36,7 +43,7 @@
 			</div>
 		</form>
 		
-			<hr style="margin: 20px 150px;">
+			<hr style="margin: 20px 150px; border-color:cadetblue;">
 	</div>
 	<div id="action_btns">
 		<button type="button" id="deleteBtn">Delete</button>
@@ -46,8 +53,8 @@
 		
 
 	<ul id="password_list">
-		<li class="list_item"><input type="checkbox" />password1</li>
-		<li class="list_item"><input type="checkbox" />password2</li>
+		<li class="list_item"><input type="checkbox" />password1 - <small>Facebook</small></li>
+		<li class="list_item"><input type="checkbox" />password2 - <small>Gmail</small></li>
 	</ul>
 
 
