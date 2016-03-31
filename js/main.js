@@ -12,43 +12,52 @@ $(document).ready(function() {
 	var $insert = $('button#insert');
 	var myForm = $('#myForm');
 	var $generated = $('#randPass');
+	var $pwLabel = $('#pwLabel');
 
 	checkEven();
 
 
 // ~~~~~~~~~~~~~~ EVENT HANDLERS ~~~~~~~~~~~~~~
 
-// form event handler - submit
+// SUBMIT
 	$('form').submit(function(evt) {
 		evt.preventDefault();		
 		$date = new Date();
-		console.log($password.val() + 
-			" was added to your 1PASS! __"+ $date +"__");
-		$pw_list.append($('<li class="list_item"><input type="checkbox">'+
+		console.log($password.val() + " was added to your 1PASS! __"+ $date +"__");
+		if ($pwLabel.val()) {
+			$pw_list.append($('<li class="list_item"><input type="checkbox">'+
+							$password.val()+ ' - <small>'+ $pwLabel.val() +'</small></li>'));
+		} else {
+			$pw_list.append($('<li class="list_item"><input type="checkbox">'+
 							$password.val()+'</li>'));
+		}
 		$password.val(""); // Clear input
+		$pwLabel.val("");
 		checkEven();	
 	}); 
 
-// checkboxes event handler - change
+// CHECKED?
 	$($checkboxes).on('change',function() {
 		if ($(this).is(':checked')) {
 			$(this).closest('li').addClass('checked');
 		}
 	});
 
-// event handler for 'delete' button
+// DELETE
 	$deleteBtn.click(function() {
 		var $checkboxes = $("input[type='checkbox']");
-		console.log("delete button clicked...");
+		var count = 0;
+
 	   	for (var i=0;i<$checkboxes.length;i++) {
 			if ($($checkboxes[i]).is(':checked')) {
 				$($checkboxes[i]).closest('li').remove();
+				count++;
 			}		
 		}
+		console.log("You deleted "+count+" items!");
 	});
 
-// event handler for 'hide' button
+// HIDE
 	$hideBtn.click(function() {
 		var $checkboxes = $("input[type='checkbox']");
 		for (var i=0;i<$checkboxes.length;i++) {
@@ -58,20 +67,22 @@ $(document).ready(function() {
 		}
 	});
 
-// event handler for 'show' button
+// SHOW
 	$showBtn.click(function() {
 		$('.checked').show();
 	});
 
+// INSERT
 	$insert.click(function() {
 		$password.val($generated.val());
+		$generated.val("");
 		console.log('test');
 	});
-
+// ROW HIGHLIGHT
 	function checkEven() {
 		$('li:even').addClass('listHighlight');
 	}
 
 
 
-}); //  END DOC-READY
+}); //  ~~~~~~~~~~~END DOC-READY
