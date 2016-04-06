@@ -2,62 +2,77 @@
 <html>
 <head>
 	<title>JS TEST</title>
-	<link rel="stylesheet" href="css/styles.css">
-	<link href='https://fonts.googleapis.com/css?family=Kalam:400,700,300' rel='stylesheet' type='text/css'>
+	
 
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+ 	<link rel="stylesheet" href="css/styles.css">
+	
 	<script>
-		
 		// RANDOM PASSWORD
 		function generate() {
-			var randomPass = passwordForm.randPass.value = Math.random().toString(36).slice(-8);
+			var randomPass = passwordForm.userPw.value = Math.random().toString(36).slice(-8) + Math.random().toString(36).slice(-8).toUpperCase() ;
 			return false;
 		}
-
 	</script>
 </head>
-<body class="orange">
+
+<body>
+	<div id="ads">
+		M<span class="glyphicon glyphicon-phone"></span>BILE SUPPORT
+	</div>
 	<header>
-		<h1 id="heading" style="color: darkorange">
-			<span id="headingL" style="color: cadetblue;">one</span>PASS
+		<h1 class="text-primary" id="heading">
+			<span class="sides">>>> </span>
+			<span id="headingL" style="color: #2F5FB2;">One</span><span style="color: darkorange">PASS</span>
+			<span class="sides"> >>></span>
 		</h1>
 	</header>
 	
 	<div id="main">
-		<form action="" name="passwordForm">
-			<label for="password">New Password:</label>
-			<input id="userPw" type="text" name="password" autocomplete="off"> 
+		<form class="form-inline" action="" name="passwordForm">
+			<div class="form-group">
+				<label class="form-inline" for="password">New Password:</label>
+				<input class="" id="userPw" type="text" name="password" autocomplete="off"> 
+			</div>
+			<div class="form-group">
+				<label class="" for="password">For</label>
+				<input class="form-inline" id="pwLabel" type="text" name="pwLabel" autocomplete="off">
+			</div>
 			<br>
-			<label for="password">for</label>
-			<input id="pwLabel" type="text" name="pwLabel" autocomplete="off">
-			<button type="submit">Confirm</button>
-			
-			<div id="pass-gen">
-			<p style="padding: 0; margin: 0; color:white; font-size: 14px;">
-				Password Generator
-			</p>
-				<input type="text" id="randPass" placeholder="Generate Password">
-				<button type="button" id="generatePw" onclick="generate()">
-					GENERATE
-				</button>
-				<button type="button" name="insert" id="insert">ADD</button>
+			<div class="form-group text-center" id="pass-gen">
+				<button class="btn btn-primary btn-sm" type="button" id="generatePw" onclick="generate()">GENERATE</button>
+				<button class="btn btn-primary btn-sm" type="submit">CONFIRM</button>	
 			</div>
 		</form>
-		
-			<hr style="margin: 20px 150px; border-color:cadetblue;">
+						<hr style="margin: 20px 150px; border-color:#2F5FB2;">
 	</div>
 	<div id="action_btns">
-		<button type="button" id="deleteBtn">Delete</button>
-	    <button type="button" id="hideBtn">Hide</button>
-	    <button type="button" id="showBtn">Show</button>
+	<p style="color: cadetblue; font-weight: bold;">Favorites</p> 
+	    <img class="img-reponsive" src="img/icon1.png" alt="">
+	    <img class="img-reponsive" src="img/icon2.png" alt="">
+	    <img class="img-reponsive" src="img/icon3.png" alt="">
+	    <img class="img-reponsive" src="img/icon4.png" alt="">
+	    <img class="img-reponsive" src="img/icon5.png" alt="">
+	    <img class="img-reponsive" src="img/icon6.png" alt="">
+	    <img class="img-reponsive" src="img/icon7.png" alt="">
+	    <span>NEW <span class="glyphicon glyphicon-plus"></span></span>
 	</div>
-		
 
-	<ul id="password_list">
-		<li class="list_item"><input type="checkbox" />password1 - <small>Facebook</small></li>
-		<li class="list_item"><input type="checkbox" />password2 - <small>Gmail</small></li>
+	<ul class="list-unstyled" id="password_list">
+
+		<li class="list_item">
+			test!_Password01 - <small>Facebook</small>
+			<span class="glyphicon glyphicon-remove text-danger"></span>
+		</li>
+
+		<li class="list_item">
+			ThisIsAnExampleOfAPassPhrase2001 - <small>Gmail</small>
+			<span class="glyphicon glyphicon-remove text-danger"></span>
+		</li>
 	</ul>
 
-
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	<script src="js/jquery.js"></script>
 	<script src="js/main.js"></script>
 </body>
