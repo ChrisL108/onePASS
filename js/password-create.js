@@ -2,9 +2,11 @@ $(function() {
 
 	var $genBtn = $("#generatePw");
 	var $submitBtn = $('button[type=submit]');
+	var $deleteBtns = $('.glyphicon-remove');
+	var $pwList = $('#password_list');
 	var $userPw = $("#userPw");
 	var $service = $('#pwLabel');
-	var $pwList = $('#password_list');
+	
 	var $popIn = $('#pop-in');
 	
 	var Password = {
@@ -33,6 +35,11 @@ $(function() {
 				'<span class="glyphicon glyphicon-remove text-danger"></span></li>';
 			$pwList.append(listItem);
 		},
+
+		delete: function(elem) {
+			elem.remove();
+		},
+
 		// gets random character from string
 		_getRandChar : function(elems) {
 			return elems[Math.floor(Math.random() * elems.length)];
@@ -40,7 +47,7 @@ $(function() {
 	};
 
 
-// _$_ EVENT HANDLERS
+// ~~~~~ EVENT HANDLERS ~~~~~
 
 	// Generate Button
 	$genBtn.on('click', function() {
@@ -50,17 +57,22 @@ $(function() {
 	$submitBtn.on('click', function(event) {
 		event.preventDefault();
 		Password.addPassword($userPw.val(), $service.val());
-		// Fade In Notification
-		if ($service.val()) {
-			$popIn.find('h1').html("You added a password for"+$service.val()+ "!");
-		} else {
-			$popIn.find('h1').html("You added a password!");
-		}
-		$popIn.fadeIn('slow').delay(1100).fadeOut('slow');
 		// clear previous values
 		$userPw.val("");
 		$service.val("");
 
+		// set notification
+		if ($service.val()) {
+			$popIn.find('h1').html("Password Added for "+$service.val()+ "!");
+		} else {
+			$popIn.find('h1').html("Password Added!");
+		}
+		// fade in notification
+		$popIn.fadeIn('slow').delay(1100).fadeOut('slow');
+	});
+
+	$('body').on('click', '.glyphicon-remove', function() {
+		this.closest('li').remove();
 	});
 
 	// Automatically hide notification box
