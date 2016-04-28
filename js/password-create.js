@@ -63,7 +63,7 @@ $(function() {
 		// fade in notification
 		$popIn.fadeIn('slow').delay(1100).fadeOut('slow');
 	});
-
+	// Delete glyphicon
 	$('body').on('click', '.glyphicon-remove', function() {
 		this.closest('li').remove();
 	});
