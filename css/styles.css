@@ -11,6 +11,13 @@ body {
 	text-align: center;
 	font-size: 16px;
 }
+#pop-in {
+	position: absolute;
+	min-width: 100%;
+	height: 100%;
+	background: gray;
+	z-index: 99;
+}
 label,input {
 	margin: 5px;
 	padding: 0;
@@ -37,6 +44,9 @@ span.glyphicon-remove {
 }
 .sides {
 	opacity: .5;
+}
+.sides:hover {
+	opacity: 1;
 }
 input[type=checkbox] {
   padding: 10px;
@@ -72,6 +82,9 @@ input[type=checkbox] {
 }
 .list_item:hover {
 	border: 1px solid lightblue;
+}
+.list_item small {
+	color: white;
 }
 .listHighlight {
 	background-color: rgba(96, 125, 139, 0.45);
