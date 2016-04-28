@@ -1,8 +1,5 @@
 $(function() {
 
-	var $genBtn = $("#generatePw");
-	var $submitBtn = $('button[type=submit]');
-	var $deleteBtns = $('.glyphicon-remove');
 	var $pwList = $('#password_list');
 	var $userPw = $("#userPw");
 	var $service = $('#pwLabel');
@@ -36,10 +33,6 @@ $(function() {
 			$pwList.append(listItem);
 		},
 
-		delete: function(elem) {
-			elem.remove();
-		},
-
 		// gets random character from string
 		_getRandChar : function(elems) {
 			return elems[Math.floor(Math.random() * elems.length)];
@@ -50,11 +43,11 @@ $(function() {
 // ~~~~~ EVENT HANDLERS ~~~~~
 
 	// Generate Button
-	$genBtn.on('click', function() {
+	$("#generatePw").on('click', function() {
 		$userPw.val(Password.generateRandom());
 	});
 	// Confirm Button
-	$submitBtn.on('click', function(event) {
+	$('button[type=submit]').on('click', function(event) {
 		event.preventDefault();
 		Password.addPassword($userPw.val(), $service.val());
 		// clear previous values
