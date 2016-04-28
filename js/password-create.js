@@ -29,7 +29,7 @@ $(function() {
 		// add password to list
 		addPassword: function(pw, service) {
 			var listItem = '<li class="list_item">' + pw + 
-				' - <small>' + service + '</small>' + 
+				'  <small>' + service + '</small>' + 
 				'<span class="glyphicon glyphicon-remove text-danger"></span></li>';
 			$pwList.append(listItem);
 		},
@@ -40,7 +40,7 @@ $(function() {
 	};
 
 
-// ~~~~~~~EVENT HANDLERS
+// _$_ EVENT HANDLERS
 
 	// Generate Button
 	$genBtn.on('click', function() {
@@ -50,10 +50,20 @@ $(function() {
 	$submitBtn.on('click', function(event) {
 		event.preventDefault();
 		Password.addPassword($userPw.val(), $service.val());
+		// Fade In Notification
+		if ($service.val()) {
+			$popIn.find('h1').html("You added a password for"+$service.val()+ "!");
+		} else {
+			$popIn.find('h1').html("You added a password!");
+		}
+		$popIn.fadeIn('slow').delay(1100).fadeOut('slow');
+		// clear previous values
 		$userPw.val("");
 		$service.val("");
+
 	});
 
+	// Automatically hide notification box
 	$popIn.hide();
 
 });
