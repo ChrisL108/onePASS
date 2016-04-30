@@ -79,7 +79,7 @@ $(function() {
 	});
 
 	// EDIT Submit Handler
-	$('#newPassEdit').on('click', function() {
+	$('#editPassSubmit').on('click', function() {
 		event.preventDefault();
 		var $inputTxt = $('#editPassText');
 		$elemToEdit.children('span#list-pw').html($inputTxt.val());;
