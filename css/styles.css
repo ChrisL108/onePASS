@@ -32,6 +32,16 @@ input {
 input[type=text]:focus {
   border-color: #2F5FB2;
 }
+/*edit password box*/
+input#editPassText {
+	background: gray;
+	border: 1px solid gray;
+	color:black;
+}
+/*edit password submit button*/
+span.glyphicon-check {
+	color: black;
+}
 #ads {
 	position: absolute;
 	top: 15px;
