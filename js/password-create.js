@@ -28,14 +28,12 @@ $(function() {
 		},
 		// add password to list
 		addPassword: function(pw, service) {
-			var listItem = '<li class="list_item">' + pw + 
-				'  <small>' + service + '</small>' + 
-				'<span class="glyphicon glyphicon-remove text-danger"></span></li>';
+			var listItem = '<li class="list_item"><span id="list-pw">' + pw + 
+				'</span>  <small>' + service + '</small>' + 
+				'<span class="glyphicon glyphicon-remove text-danger"></span>' + 
+				' <span class="glyphicon glyphicon-pencil text-primary"></span></li>';
 			$pwList.append(listItem);
 		},
-		// editPassword: function(toEdit) {
-		// 	toEdit.val("TESTING");
-		// },
 
 		// gets random character from string
 		_getRandChar : function(elems) {
@@ -50,11 +48,11 @@ $(function() {
 	$("#generatePw").on('click', function() {
 		$userPw.val(Password.generateRandom());
 	});
-	// Confirm Button
+	// CONFIRM new-password Button
 	$('button#newPassSubmit').on('click', function(event) {
 		event.preventDefault();
 		Password.addPassword($userPw.val(), $service.val());
-
+		console.log("test");
 		// set notification
 		if ($service.val()) {
 			$popIn.find('h1').html("Password Added for "+$service.val()+ "!");
@@ -69,24 +67,26 @@ $(function() {
 		
 	});
 
-	
-
-	// Delete buttons
+	// DELETE buttons
 	$('body').on('click', '.glyphicon-remove', function() {
 		this.closest('li').remove();
 	});
-	// Edit buttons
+
+	// EDIT buttons
 	$('body').on('click', '.glyphicon-pencil', function() {
 		$editPassBox.fadeToggle();
-		elemToEdit = this.closest('li');
-		console.log(elemToEdit);
-		
+		$elemToEdit = $(this).closest('li');
 	});
-	// Edit button submit
-	$('button#newPassEdit').on('click', function(event) {
+
+	// EDIT Submit Handler
+	$('#newPassEdit').on('click', function() {
 		event.preventDefault();
-		// Password.editPassword(elemToEdit);
+		var $inputTxt = $('#editPassText');
+		$elemToEdit.children('span#list-pw').html($inputTxt.val());;
+		$editPassBox.delay(200).fadeOut();
+		$inputTxt.val("");
 	});
+	
 
 	
 	// Automatically hide notification box
@@ -94,3 +94,5 @@ $(function() {
 	$editPassBox.hide();
 
 });
+
+

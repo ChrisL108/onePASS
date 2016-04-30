@@ -45,7 +45,7 @@
 			<!-- password generator -->
 			<div class="form-group text-center" id="pass-gen">
 				<button class="btn btn-primary btn-sm" type="button" id="generatePw">GENERATE</button>
-				<button class="btn btn-primary btn-sm" type="submit">CONFIRM</button>	
+				<button class="btn btn-primary btn-sm" type="submit" id="newPassSubmit">CONFIRM</button>	
 			</div>
 		</form>
 						<hr style="margin: 20px 150px; border-color:#2F5FB2;">
@@ -63,21 +63,22 @@
 	    <span>NEW <span class="glyphicon glyphicon-plus"></span></span>
 	</div>
 	<div id="editPass">
-		<input type="text">
+		<input type="text" id="editPassText">
 		<button id="newPassEdit" type="submit"><span class="glyphicon glyphicon-check"></span></button>
 	</div>
 	 <!-- password list -->
 	<ul class="list-unstyled" id="password_list">
 
 		<li class="list_item">
-			test!_Password01 <small>Facebook</small>
+			<span id="list-pw">test!_Password01</span> <small>Facebook</small>
 			<span class="glyphicon glyphicon-remove text-danger"></span>
 			<span class="glyphicon glyphicon-pencil text-primary"></span>
 		</li>
 
 		<li class="list_item">
-			ThisIsAnExampleOfAPassPhrase2001 <small>Gmail</small>
+			<span id="list-pw">ThisIsAnExampleOfAPassPhrase2001</span> <small>Gmail</small>
 			<span class="glyphicon glyphicon-remove text-danger"></span>
+			<span class="glyphicon glyphicon-pencil text-primary"></span>
 		</li>
 	</ul>
 
