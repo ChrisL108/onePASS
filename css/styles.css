@@ -18,6 +18,10 @@ body {
 	background: gray;
 	z-index: 99;
 }
+#editPass {
+	margin: 0;
+	margin-top: 10px;
+}
 label,input {
 	margin: 5px;
 	padding: 0;
@@ -43,6 +47,7 @@ span.glyphicon-check {
 	position: absolute;
 	top: 15px;
 	left: 10px;
+    color: gray;
 }
 span.glyphicon-remove {
 	margin-left: 10px;
@@ -67,12 +72,13 @@ input[type=checkbox] {
 	margin: 10px 6px 0 6px;
 	border: 2px solid rgba(1, 1, 1, .4);
 }
+/*favorites*/
 #action_btns {
 	display: inline-block;
 }
 #action_btns img {
-	width: 60px;
-	margin: 10px;
+	width: 40px;
+	margin: 0 10px;
 }
 #action_btns img:hover {
 	opacity: .75;
