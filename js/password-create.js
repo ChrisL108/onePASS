@@ -91,6 +91,6 @@ $(function() {
 	
 	// Automatically hide notification box
 	$popIn.hide();
-	//$editPassBox.hide();
+	$editPassBox.hide();
 
 });
