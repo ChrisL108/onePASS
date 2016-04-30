@@ -5,6 +5,7 @@ $(function() {
 	var $service = $('#pwLabel');
 	
 	var $popIn = $('#pop-in');
+	var $editPassBox = $('#editPass');
 	
 	var Password = {
 		// generates a random password
@@ -32,6 +33,9 @@ $(function() {
 				'<span class="glyphicon glyphicon-remove text-danger"></span></li>';
 			$pwList.append(listItem);
 		},
+		// editPassword: function(toEdit) {
+		// 	toEdit.val("TESTING");
+		// },
 
 		// gets random character from string
 		_getRandChar : function(elems) {
@@ -47,12 +51,9 @@ $(function() {
 		$userPw.val(Password.generateRandom());
 	});
 	// Confirm Button
-	$('button[type=submit]').on('click', function(event) {
+	$('button#newPassSubmit').on('click', function(event) {
 		event.preventDefault();
 		Password.addPassword($userPw.val(), $service.val());
-		// clear previous values
-		$userPw.val("");
-		$service.val("");
 
 		// set notification
 		if ($service.val()) {
@@ -61,14 +62,35 @@ $(function() {
 			$popIn.find('h1').html("Password Added!");
 		}
 		// fade in notification
-		$popIn.fadeIn('slow').delay(1100).fadeOut('slow');
+		$popIn.fadeIn('slow').delay(1000).fadeOut('slow');
+		// clear previous values
+		$userPw.val("");
+		$service.val("");
+		
 	});
-	// Delete glyphicon
+
+	
+
+	// Delete buttons
 	$('body').on('click', '.glyphicon-remove', function() {
 		this.closest('li').remove();
 	});
+	// Edit buttons
+	$('body').on('click', '.glyphicon-pencil', function() {
+		$editPassBox.fadeToggle();
+		elemToEdit = this.closest('li');
+		console.log(elemToEdit);
+		
+	});
+	// Edit button submit
+	$('button#newPassEdit').on('click', function(event) {
+		event.preventDefault();
+		// Password.editPassword(elemToEdit);
+	});
 
+	
 	// Automatically hide notification box
 	$popIn.hide();
+	//$editPassBox.hide();
 
 });
