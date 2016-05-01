@@ -64,12 +64,13 @@ $(function() {
 		// clear previous values
 		$userPw.val("");
 		$service.val("");
-		
 	});
 
 	// DELETE buttons
-	$('body').on('click', '.glyphicon-remove', function() {
-		this.closest('li').remove();
+	$('body').on('click', '.glyphicon-remove', function(event) {
+		var $item = $(this).closest('li');
+		$item.fadeOut('slow', function() {$item.remove();});
+		
 	});
 
 	// EDIT buttons
@@ -78,12 +79,12 @@ $(function() {
 		$elemToEdit = $(this).closest('li');
 	});
 
-	// EDIT Submit Handler
+	// EDIT SUBMIT Handler
 	$('#editPassSubmit').on('click', function() {
 		event.preventDefault();
 		var $inputTxt = $('#editPassText');
 		$elemToEdit.children('span#list-pw').html($inputTxt.val());;
-		$editPassBox.delay(200).fadeOut();
+		$editPassBox.delay(100).fadeOut('slow');
 		$inputTxt.val("");
 	});
 	
