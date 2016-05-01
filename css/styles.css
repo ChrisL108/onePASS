@@ -17,6 +17,7 @@ body {
 	opacity: .85;
 	background: gray;
 	z-index: 99;
+	color: lime;
 }
 #editPass {
 	margin: 0;
@@ -35,9 +36,9 @@ input[type=text]:focus {
 }
 /*edit password box*/
 input#editPassText {
-	background: gray;
+	background: rgba(128, 128, 128, 0.2);
 	border: 1px solid gray;
-	color:black;
+	color:lime;
 }
 /*edit password submit button*/
 span.glyphicon-check {
