@@ -69,8 +69,7 @@ $(function() {
 	// DELETE buttons
 	$('body').on('click', '.glyphicon-remove', function(event) {
 		var $item = $(this).closest('li');
-		$item.fadeOut('slow', function() {$item.remove();});
-		
+		$item.fadeOut('fast', function() {$item.remove();});
 	});
 
 	// EDIT buttons
