@@ -1,15 +1,16 @@
-
 body {
-	font-family: 'Lato', sans-serif;
-	color: lightblue;
 	background: -webkit-radial-gradient(rgb(39, 104, 119), #181818);
-	background: -moz-radial-gradient(rgb(39, 104, 119), #181818);
-	background: -o-radial-gradient(rgb(39, 104, 119), #181818);
-	background: radial-gradient(rgb(39, 104, 119), #181818);
-	min-width: 100%;
-	min-height: 100%;
 	text-align: center;
-	font-size: 16px;
+	font-size: 17px;
+}
+
+#pop-in {
+	position: absolute;
+	opacity: .85;
+	background: gray;
+	width: 92%;
+	margin: 0 auto;
+	z-index: 99;
 }
 label,input {
 	margin: 5px;
@@ -22,10 +23,21 @@ input {
 input[type=text]:focus {
   border-color: #2F5FB2;
 }
+/*edit password box*/
+input#editPassText {
+	background: rgba(128, 128, 128, 0.2);
+	border: 1px solid gray;
+	color:lightblue;
+}
+/*edit password submit button*/
+span.glyphicon-check {
+	color: black;
+}
 #ads {
 	position: absolute;
 	top: 15px;
 	left: 10px;
+    color: gray;
 }
 span.glyphicon-remove {
 	margin-left: 10px;
@@ -38,6 +50,9 @@ span.glyphicon-remove {
 .sides {
 	opacity: .5;
 }
+.sides:hover {
+	opacity: 1;
+}
 input[type=checkbox] {
   padding: 10px;
   margin-right: 10px;
@@ -47,37 +62,52 @@ input[type=checkbox] {
 	margin: 10px 6px 0 6px;
 	border: 2px solid rgba(1, 1, 1, .4);
 }
+/*favorites*/
 #action_btns {
 	display: inline-block;
 }
 #action_btns img {
-	width: 60px;
-	margin: 10px;
+	width: 40px;
+	margin: 0 10px;
 }
 #action_btns img:hover {
 	opacity: .75;
 }
 #password_list {
 	padding: 20px;
+	z-index: 98;
 }
 #password_list li {
 	padding: 10px;
 	margin: 5px;
 }
-.list_item {
+li.list_item {
 	padding: 1px;
 	color: gray;
 	text-shadow: 1px 1px 1px black;
-	border: 1px solid cadetblue;
+	font-size:15px;
 }
 .list_item:hover {
-	border: 1px solid lightblue;
+	color:white;
 }
-.listHighlight {
-	background-color: rgba(96, 125, 139, 0.45);
+.list_item small {
 	color: white;
 }
+
 .orange {color: orange;}
 .yellow {color: yellow;}
 .white {color:white;}
 .blue {color:blue;}
+html {
+	font-family: 'Lato', sans-serif;
+	color: lightblue;
+	background: radial-gradient(rgb(39, 104, 119), #181818);
+	min-width: 100%;
+	min-height: 100%;
+	text-align: center;
+	font-size: 16px;
+}
+#createdBy, #githubLink {
+	font-size:12px;
+}
+
