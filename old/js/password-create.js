@@ -1,5 +1,5 @@
 $(function() {
-
+	'use strict';
 	var $pwList = $('#password_list');
 	var $userPw = $("#userPw");
 	var $service = $('#pwLabel');
@@ -29,7 +29,7 @@ $(function() {
 		},
 		// add password to list
 		addPassword: function(pw, service) {
-			var listItem = '<li class="list_item"><span class="list-pw">' + pw + 
+			var listItem = '<li class="list_item"><span id="list-pw">' + pw + 
 				'</span>  <small>' + service + '</small>' + 
 				'<span class="glyphicon glyphicon-remove text-danger"></span>' + 
 				' <span class="glyphicon glyphicon-pencil text-primary"></span></li>';
@@ -61,7 +61,7 @@ $(function() {
 			$popIn.find('h1').html("Password Added!");
 		}
 		// fade in notification
-		$popIn.stop().fadeIn('slow').delay(1000).fadeOut('slow');
+		$popIn.fadeIn('slow').delay(1000).fadeOut('slow');
 		// clear previous values
 		$userPw.val("");
 		$service.val("");
@@ -83,7 +83,7 @@ $(function() {
 	$('#editPassSubmit').on('click', function() {
 		event.preventDefault();
 		var $inputTxt = $('#editPassText');
-		$elemToEdit.children('.list-pw').html($inputTxt.val());
+		$elemToEdit.children('span#list-pw').html($inputTxt.val());
 		$editPassBox.delay(100).fadeOut('slow');
 		$inputTxt.val("");
 	});

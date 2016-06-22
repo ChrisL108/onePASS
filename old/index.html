@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JS TEST</title>
+	<meta charset="UTF-8">
+	<meta description="Onepass Password Manager - Simple and Secure">
+	<meta author="Chris Lacaille">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+ 	<link rel="stylesheet" href="css/styles.css">
+
+</head>
+
+<body>
+	<div id="ads">
+		M<span class="glyphicon glyphicon-phone"></span>BILE SUPPORT
+	</div>
+	<header>
+		<!-- TITLE -->
+		<h1 class="text-primary" id="heading">
+			<span class="sides"> >>> </span>
+			<span id="headingL" style="color:#ADD8C7;">One</span><span style="color:#FFC04C;">PASS</span>
+			<span class="sides"> >>></span>
+		</h1>
+	</header>
+	<!-- Notification Box (pop-in) -->
+	<div id="pop-in">			
+		<h1>POP-IN BOX</h1>
+	</div>
+	<div id="main">
+		<!-- NEW PASSWORD FORM -->
+		<form class="form-inline col-sm-8 col-sm-offset-2" action="" name="passwordForm">
+			<div class="form-group">
+				<label class="form-inline" for="password">New Password:</label>
+				<!-- password insert -->
+				<input class="" id="userPw" type="text" name="password" autocomplete="off"> 
+			</div>
+			<div class="form-group">
+				<label class="" for="password">For</label>
+				<!-- for... -->
+				<input class="form-inline" id="pwLabel" type="text" name="pwLabel" autocomplete="off">
+			</div>
+			<br>
+			<!-- password generator -->
+			<div class="form-group text-center" id="pass-gen">
+				<button class="btn btn-primary btn-sm" type="button" id="generatePw">GENERATE</button>
+				<button class="btn btn-primary btn-sm" type="submit" id="newPassSubmit">CONFIRM</button>	
+			</div>
+		</form>
+						<hr style="margin: 20px 150px; border-color:#2F5FB2;">
+	</div>
+	<!-- FAVORITES -->
+	<div id="action_btns">
+	<p style="color: cadetblue; font-weight: bold;">Favorites</p> 
+	    <img class="img-reponsive" src="img/icons-resized/icon1.png" alt="">
+	    <img class="img-reponsive" src="img/icons-resized/icon2.png" alt="">
+	    <img class="img-reponsive" src="img/icons-resized/icon3.png" alt="">
+	    <img class="img-reponsive" src="img/icons-resized/icon4.png" alt="">
+	    <img class="img-reponsive" src="img/icons-resized/icon5.png" alt="">
+	    <img class="img-reponsive" src="img/icons-resized/icon6.png" alt="">
+	    <img class="img-reponsive" src="img/icons-resized/icon7.png" alt="">
+	    <span>NEW <span class="glyphicon glyphicon-plus"></span></span>
+	</div>
+	<div id="editPass">
+		<form action="">
+			<input type="text" id="editPassText" placeholder="new password here..">
+			<button id="editPassSubmit" type="submit"><span class="glyphicon glyphicon-check"></span></button>
+		</form>
+	</div>
+	 <!-- PASSWORD LIST -->
+	<ul class="list-unstyled col-sm-8 col-sm-offset-2" id="password_list">
+
+		<li class="list_item">
+			<span id="list-pw">test!_Password01</span> <small>Facebook</small>
+			<span class="glyphicon glyphicon-remove text-danger"></span>
+			<span class="glyphicon glyphicon-pencil text-primary"></span>
+		</li>
+
+		<li class="list_item">
+			<span>ThisIsAnExampleOfAPassPhrase2001</span> <small>Gmail</small>
+			<span class="glyphicon glyphicon-remove text-danger"></span>
+			<span class="glyphicon glyphicon-pencil text-primary"></span>
+		</li>
+	</ul>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+	<script src="js/password-create.js"></script>
+</body>
+</html>

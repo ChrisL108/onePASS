@@ -1,25 +1,26 @@
 body {
+	font-family: 'Lato', sans-serif;
+	color: lightblue;
 	background: -webkit-radial-gradient(rgb(39, 104, 119), #181818);
+	background: -moz-radial-gradient(rgb(39, 104, 119), #181818);
+	background: -o-radial-gradient(rgb(39, 104, 119), #181818);
+	background: radial-gradient(rgb(39, 104, 119), #181818);
+	min-width: 100%;
+	min-height: 100%;
 	text-align: center;
-	font-size: 17px;
+	font-size: 16px;
 }
-#editPass {
-
-
-
-
-}
-
-
 #pop-in {
 	position: absolute;
+	min-width: 100%;
 	opacity: .85;
 	background: gray;
-	width: 100%;
-	margin-right: auto;
-	margin-left: auto;
 	z-index: 99;
-	left: 0;
+	color: black;
+}
+#editPass {
+	margin: 0;
+	margin-top: 10px;
 }
 label,input {
 	margin: 5px;
@@ -36,7 +37,7 @@ input[type=text]:focus {
 input#editPassText {
 	background: rgba(128, 128, 128, 0.2);
 	border: 1px solid gray;
-	color:lightblue;
+	color:lime;
 }
 /*edit password submit button*/
 span.glyphicon-check {
@@ -84,39 +85,28 @@ input[type=checkbox] {
 }
 #password_list {
 	padding: 20px;
-	z-index: 98;
 }
 #password_list li {
 	padding: 10px;
 	margin: 5px;
 }
-li.list_item {
+.list_item {
 	padding: 1px;
 	color: gray;
 	text-shadow: 1px 1px 1px black;
-	font-size:15px;
+	border: 1px solid cadetblue;
 }
 .list_item:hover {
-	color:white;
+	border: 1px solid lightblue;
 }
 .list_item small {
 	color: white;
 }
-
+.listHighlight {
+	background-color: rgba(96, 125, 139, 0.45);
+	color: white;
+}
 .orange {color: orange;}
 .yellow {color: yellow;}
 .white {color:white;}
 .blue {color:blue;}
-html {
-	font-family: 'Lato', sans-serif;
-	color: lightblue;
-	background: radial-gradient(rgb(39, 104, 119), #181818);
-	min-width: 100%;
-	min-height: 100%;
-	text-align: center;
-	font-size: 16px;
-}
-#createdBy, #githubLink {
-	font-size:12px;
-}
-
