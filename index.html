@@ -37,9 +37,9 @@
             <header>
                 <!-- TITLE -->
                 <h1 class="text-primary col-lg-12" id="heading">
-                    <span class="sides"> >>> </span>
+                    <span class="sides hidden-sm-down"> >>> </span>
                     <span id="headingL" style="color:#ADD8C7;">One</span><span style="color:#FFC04C;">PASS</span>
-                    <span class="sides"> >>></span>
+                    <span class="sides hidden-sm-down"> >>></span>
                 </h1>
             </header>
           <!-- Notification Box (pop-in) -->
@@ -62,30 +62,33 @@
 			<br>
 			<!-- password generator -->
 			<div class="form-group text-center" id="pass-gen">
-				<button class="btn btn-primary btn-sm btn-lg" type="button" id="generatePw"><i class="fa fa-refresh fa-lg"></i></button>
-				<button class="btn btn-primary btn-sm btn-lg" type="submit" id="newPassSubmit"><em class="fa fa-floppy-o fa-lg"></em><br>
+				<button class="btn btn-primary btn-sm btn-lg" type="button" id="generatePw"><i class="fa fa-refresh fa-lg"></i> GEN</button>
+				<button class="btn btn-primary btn-sm btn-lg" type="submit" id="newPassSubmit"><i class="fa fa-floppy-o fa-lg"></i> SAVE<br>
 				</button><br>
-				<button id="clearStorage" type="button" class="btn btn-sm btn-primary">Clear Storage</button>
+				<button type="button" class="btn btn-sm btn-primary" onclick="location.reload(true);">Refresh List</button>
+				<button id="clearStorage" type="button" class="btn btn-sm btn-primary">Clear Passwords</button>
+
 			</div>
 		</form>
 	</div>
 
-	 <!-- PASSWORD LIST -->
+	<!-- EDIT PASSWORD -->
     <div id="editPass">
 		<form action="">
 			<input type="text" id="editPassText" placeholder="new password here..">
 			<button id="editPassSubmit" type="submit"><span class="glyphicon glyphicon-check"></span></button>
 		</form>
 	</div>
+	 <!-- PASSWORD LIST -->
 	<ul class="list-unstyled col-md-12" id="password_list">
 
-		<li class="list_item">
+		<li class="list_item dummy-pw">
 			<span class="list-pw">test!_Password01</span> <small>Facebook</small>
 			<span class="glyphicon glyphicon-remove text-danger"></span>
 			<span class="glyphicon glyphicon-pencil text-primary"></span>
 		</li>
 
-		<li class="list_item">
+		<li class="list_item dummy-pw">
 			<span class="list-pw">ThisIsAnExampleOfAPassPhrase2001</span> <small>Gmail</small>
 			<span class="glyphicon glyphicon-remove text-danger"></span>
 			<span class="glyphicon glyphicon-pencil text-primary"></span>
