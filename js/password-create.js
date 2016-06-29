@@ -47,10 +47,10 @@ $(function() {
 		},
 		// add password to list
 		addPassword: function(pw, service) {
-			var listItem = '<li class="list_item"><span class="list-pw">' + pw + 
-				'</span>  <small>' + service + '</small>' + 
-				'<span class="glyphicon glyphicon-remove text-danger"></span>' + 
-				' <span class="glyphicon glyphicon-pencil text-primary"></span></li>';
+			var listItem =  '<li class="list_item"><span class="list-pw">' + pw + 
+							'</span>  <small>' + service + '</small>' + 
+							'<span class="glyphicon glyphicon-remove text-danger"></span>' + 
+							' <span class="glyphicon glyphicon-pencil text-primary"></span></li>';
 			$pwList.append(listItem);
 			// set in localstorage
 			localStorage.setItem(service, pw);
@@ -61,11 +61,12 @@ Password.init();
 
 // ~~~~~ EVENT HANDLERS ~~~~~
 
-	// Generate Button
+	// Generate Password
 	$("#generatePw").on('click', function() {
 		$userPw.val(Password.generateRandom());
 	});
-	// SUBMIT new-password Button
+
+	// (SUBMIT) new-password Button
 	$('button#newPassSubmit').on('click', function(event) {
 		event.preventDefault();
 		Password.addPassword($userPw.val(), $service.val());
@@ -83,19 +84,19 @@ Password.init();
 		$service.val("");
 	});
 
-	// DELETE buttons
+	// (DELETE) buttons
 	$('body').on('click', '.glyphicon-remove', function() {
 		var $item = $(this).closest('li');
 		$item.fadeOut('fast', function() {$item.remove();});
 	});
 
-	// EDIT buttons
+	// (EDIT) buttons
 	$('body').on('click', '.glyphicon-pencil', function() {
 		$editPassBox.fadeToggle();
 		$elemToEdit = $(this).closest('li');
 	});
 
-	// EDIT (SUBMIT) Handler
+	// (EDIT - SUBMIT) pop-in box
 	$('#editPassSubmit').on('click', function() {
 		event.preventDefault();
 		var $inputTxt = $('#editPassText');
