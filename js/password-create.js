@@ -5,7 +5,7 @@ $(function() {
 		$service = $('#pwLabel'), // Input box for "for" service
 		$popIn = $('#pop-in'), // Fade in - shows added password
 		$editPassBox = $('#editPass'), // Fade in - shows 'edit pw' box
-		$elemToEdit; // Need variable for dynamically added passwords
+		$elemToEdit, $localStorageItem; // Need variables for dynamically added passwords
 
 		$popIn.hide();
 		$editPassBox.hide();
@@ -16,9 +16,13 @@ $(function() {
 		numbers = "0123456789";
 
 		var service, pw;
+		$dummyPw = $(".dummy-pw");
+		$dummyPw.hide();
 
 	var Password = {
-		// add passwords currently residing in localStorage
+		// if ( passwords in localstorage ):
+		//      { add passwords in localStorage }
+		// else - show dummy passwords
 		init: function() {
 			if (localStorage.length !== 0) {
 				for (var i = 0; i < localStorage.length; i++) {
@@ -26,6 +30,8 @@ $(function() {
 					pw = localStorage.getItem(localStorage.key(i));
 					this.addPassword(pw, service);
 				}
+			} else {
+				$dummyPw.show();
 			}
 		},
 		// gets random character from string
@@ -81,7 +87,7 @@ Password.init();
 		}
 		// fade in notification
 		$popIn.stop(true).fadeIn('slow').delay(1000).fadeOut('slow');
-		// clear previous values
+		// clear inputs & focus top input
 		$userPw.val("").focus();
 		$service.val("");
 	});
@@ -92,6 +98,7 @@ Password.init();
 		$item.fadeOut('fast', function() {$item.remove();});
 
 		var itemKey = $item.find('small').text();
+		// remove from localstorage
 		localStorage.removeItem(itemKey);
 	});
 
@@ -99,17 +106,23 @@ Password.init();
 	$('body').on('click', '.glyphicon-pencil', function() {
 		$editPassBox.fadeToggle();
 		$elemToEdit = $(this).closest('li');
+		// get item to use w/ localstorage
+		$localStorageItem = $elemToEdit.find('small').text();
 	});
 
 	// (EDIT - SUBMIT) pop-in box
-	$('#editPassSubmit').on('click', function() {
-		event.preventDefault();
+	$('#editPassSubmit').on('click', function(e) {
+		e.preventDefault();
 		var $inputTxt = $('#editPassText');
 		$elemToEdit.children('.list-pw').html($inputTxt.val());
 		$editPassBox.delay(100).fadeOut('slow');
+		// set new password in localstorage
+		localStorage.setItem( $localStorageItem, $inputTxt.val() );
+		// clear input box
 		$inputTxt.val("");
 	});
 
+	// Clear Storage
 	$("#clearStorage").on('click', function(event) {
 		event.preventDefault();
 		localStorage.clear();
