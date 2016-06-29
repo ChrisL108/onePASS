@@ -122,9 +122,10 @@ Password.init();
 		$inputTxt.val("");
 	});
 
-	// Clear Storage
-	$("#clearStorage").on('click', function(event) {
-		event.preventDefault();
+	// Clear Passwords / Storage
+	$("#clearStorage").on('click', function(e) {
+		e.preventDefault();
+		$(".list_item").remove();
 		localStorage.clear();
 	});
 	
