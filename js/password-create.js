@@ -1,19 +1,37 @@
 $(function() {
 
-	var $pwList = $('#password_list');
-	var $userPw = $("#userPw");
-	var $service = $('#pwLabel');
-	
-	var $popIn = $('#pop-in');
-	var $editPassBox = $('#editPass');
-	var $elemToEdit;
-	
+	var $pwList = $('#password_list'),  // List of user's passwords
+		$userPw = $("#userPw"), // Input box for passwords
+		$service = $('#pwLabel'), // Input box for "for" service
+		$popIn = $('#pop-in'), // Fade in - shows added password
+		$editPassBox = $('#editPass'), // Fade in - shows 'edit pw' box
+		$elemToEdit; // Need variable for dynamically added passwords
+
+		$popIn.hide();
+		$editPassBox.hide();
+
+		//  Character sets for password generation
+		symbols = "![]{}()%&*$#^<>~@|",
+		letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
+		numbers = "0123456789";
+
+		var service, pw;
+
 	var Password = {
+		// add passwords currently residing in localStorage
+		init: function() {
+			for (var i = 0; i < localStorage.length; i++) {
+				service = localStorage.key(i);
+				pw = localStorage.getItem(localStorage.key(i));
+				this.addPassword(service, pw);
+			}
+		},
+		// gets random character from string
+		_getRandChar : function(elems) {
+			return elems[Math.floor(Math.random() * elems.length)];
+		},
 		// generates a random password
 		generateRandom: function() { 
-			var symbols = "![]{}()%&*$#^<>~@|";
-			var letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-			var numbers = "0123456789";
 
 			var password = [];
 			for (var i = 0, len = 16 ; i < len ; i++) {
@@ -34,14 +52,12 @@ $(function() {
 				'<span class="glyphicon glyphicon-remove text-danger"></span>' + 
 				' <span class="glyphicon glyphicon-pencil text-primary"></span></li>';
 			$pwList.append(listItem);
-		},
-
-		// gets random character from string
-		_getRandChar : function(elems) {
-			return elems[Math.floor(Math.random() * elems.length)];
+			// set in localstorage
+			localStorage.setItem(service, pw);
 		}
-	};
+	}; // end Password()
 
+Password.init();
 
 // ~~~~~ EVENT HANDLERS ~~~~~
 
@@ -49,21 +65,21 @@ $(function() {
 	$("#generatePw").on('click', function() {
 		$userPw.val(Password.generateRandom());
 	});
-	// CONFIRM new-password Button
+	// SUBMIT new-password Button
 	$('button#newPassSubmit').on('click', function(event) {
 		event.preventDefault();
 		Password.addPassword($userPw.val(), $service.val());
 		console.log("test");
-		// set notification
+		// Pop-In notification
 		if ($service.val()) {
 			$popIn.find('h1').html("Password Added for "+$service.val()+ "!");
 		} else {
 			$popIn.find('h1').html("Password Added!");
 		}
 		// fade in notification
-		$popIn.stop().fadeIn('slow').delay(1000).fadeOut('slow');
+		$popIn.stop(true).fadeIn('slow').delay(1000).fadeOut('slow');
 		// clear previous values
-		$userPw.val("");
+		$userPw.val("").focus();
 		$service.val("");
 	});
 
@@ -79,7 +95,7 @@ $(function() {
 		$elemToEdit = $(this).closest('li');
 	});
 
-	// EDIT SUBMIT Handler
+	// EDIT (SUBMIT) Handler
 	$('#editPassSubmit').on('click', function() {
 		event.preventDefault();
 		var $inputTxt = $('#editPassText');
@@ -89,11 +105,7 @@ $(function() {
 	});
 	
 
-	
-	// Automatically hide notification box
-	$popIn.hide();
-	$editPassBox.hide();
 
-});
+});  // end ready()
 
 
