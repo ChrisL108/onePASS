@@ -1,16 +1,16 @@
+
+html {
+	font-family: 'Lato', sans-serif;
+	color: lightblue;
+	min-width: 100%;
+	min-height: 100%;
+	text-align: center;
+}
 body {
 	background: -webkit-radial-gradient(rgb(39, 104, 119), #181818);
 	text-align: center;
 	font-size: 17px;
 }
-#editPass {
-
-
-
-
-}
-
-
 #pop-in {
 	position: absolute;
 	opacity: .85;
@@ -107,16 +107,13 @@ li.list_item {
 .yellow {color: yellow;}
 .white {color:white;}
 .blue {color:blue;}
-html {
-	font-family: 'Lato', sans-serif;
-	color: lightblue;
-	background: radial-gradient(rgb(39, 104, 119), #181818);
-	min-width: 100%;
-	min-height: 100%;
-	text-align: center;
-	font-size: 16px;
-}
 #createdBy, #githubLink {
 	font-size:12px;
 }
 
+
+@media (max-width: 700px) {
+	.hidden-sm-down {
+		display: none;
+	}
+}
