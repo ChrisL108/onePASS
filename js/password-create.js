@@ -20,10 +20,12 @@ $(function() {
 	var Password = {
 		// add passwords currently residing in localStorage
 		init: function() {
-			for (var i = 0; i < localStorage.length; i++) {
-				service = localStorage.key(i);
-				pw = localStorage.getItem(localStorage.key(i));
-				this.addPassword(service, pw);
+			if (localStorage.length !== 0) {
+				for (var i = 0; i < localStorage.length; i++) {
+					service = localStorage.key(i);
+					pw = localStorage.getItem(localStorage.key(i));
+					this.addPassword(pw, service);
+				}
 			}
 		},
 		// gets random character from string
@@ -67,8 +69,8 @@ Password.init();
 	});
 
 	// (SUBMIT) new-password Button
-	$('button#newPassSubmit').on('click', function(event) {
-		event.preventDefault();
+	$('button#newPassSubmit').on('click', function(e) {
+		e.preventDefault();
 		Password.addPassword($userPw.val(), $service.val());
 		console.log("test");
 		// Pop-In notification
@@ -88,6 +90,9 @@ Password.init();
 	$('body').on('click', '.glyphicon-remove', function() {
 		var $item = $(this).closest('li');
 		$item.fadeOut('fast', function() {$item.remove();});
+
+		var itemKey = $item.find('small').text();
+		localStorage.removeItem(itemKey);
 	});
 
 	// (EDIT) buttons
@@ -103,6 +108,11 @@ Password.init();
 		$elemToEdit.children('.list-pw').html($inputTxt.val());
 		$editPassBox.delay(100).fadeOut('slow');
 		$inputTxt.val("");
+	});
+
+	$("#clearStorage").on('click', function(event) {
+		event.preventDefault();
+		localStorage.clear();
 	});
 	
 
