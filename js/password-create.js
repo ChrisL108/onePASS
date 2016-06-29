@@ -5,8 +5,10 @@ $(function() {
 		$service = $('#pwLabel'), // Input box for "for" service
 		$popIn = $('#pop-in'), // Fade in - shows added password
 		$editPassBox = $('#editPass'), // Fade in - shows 'edit pw' box
-		$elemToEdit, $localStorageItem; // Need variables for dynamically added passwords
+		$elemToEdit, $localStorageItem, // Need variables for dynamically added passwords
+		$dummyPw = $(".dummy-pw");
 
+		$dummyPw.hide();
 		$popIn.hide();
 		$editPassBox.hide();
 
@@ -16,13 +18,11 @@ $(function() {
 		numbers = "0123456789";
 
 		var service, pw;
-		$dummyPw = $(".dummy-pw");
-		$dummyPw.hide();
 
 	var Password = {
 		// if ( passwords in localstorage ):
-		//      { add passwords in localStorage }
-		// else - show dummy passwords
+		//      { add passwords to list }
+		// else { show dummy passwords }
 		init: function() {
 			if (localStorage.length !== 0) {
 				for (var i = 0; i < localStorage.length; i++) {
