@@ -1,15 +1,13 @@
 
 html {
 	font-family: 'Lato', sans-serif;
-	color: lightblue;
-	min-width: 100%;
-	min-height: 100%;
-	text-align: center;
 }
 body {
 	background: -webkit-radial-gradient(rgb(39, 104, 119), #181818);
 	text-align: center;
 	font-size: 17px;
+	min-width: 100%;
+	min-height: 100%;
 }
 
 #pop-in {
@@ -21,6 +19,9 @@ body {
 	margin-left: auto;
 	z-index: 99;
 	left: 0;
+}
+button {
+	color:black!important;
 }
 label,input {
 	margin: 5px;
