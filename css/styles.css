@@ -10,6 +10,9 @@ body {
 	min-height: 100%;
 }
 
+.site-wrapper {
+	overflow: hidden;
+}
 #pop-in {
 	position: absolute;
 	opacity: .85;
