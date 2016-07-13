@@ -6,8 +6,6 @@ body {
 	background: -webkit-radial-gradient(rgb(39, 104, 119), #181818);
 	text-align: center;
 	font-size: 17px;
-	min-width: 100%;
-	min-height: 100%;
 }
 
 .site-wrapper {
